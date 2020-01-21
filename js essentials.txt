@@ -1,0 +1,174 @@
+object declaration types
+1.<p id="demo1"></p>
+
+<script>
+var person = new Object();
+person.firstName = "Johnyy";
+person.lastName = "Doe";
+person.age = 50;
+person.eyeColor = "blue"; 
+
+document.getElementById("demo1").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+</script>
+
+</body>
+</html>
+
+
+2.<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Creating a JavaScript Object.</h1>
+
+<h2 id="demo"></h2>
+
+<script>
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+</script>
+
+</body>
+</html>
+
+3.//this function
+
+programme:
+ var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+The this Keyword
+In a function definition, this refers to the "owner" of the function.
+
+In the example above, this is the person object that "owns" the fullName function.
+
+programme:
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The JavaScript <i>this</i> Keyword</h2>
+
+<p>In this example, <b>this</b> represents the <b>person</b> object.</p>
+<p>Because the person object "owns" the fullName method.</p>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id     : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName+ "his Id is "+this.id;
+  }
+};
+
+// Display data from the object:
+document.getElementById("demo").innerHTML = person.fullName();
+</script>
+
+</body>
+</html>
+
+4.using built in functions 
+
+toUpperCase():
+
+var message="Hello world";
+var x=message.toUpperCase();
+
+5.JavaScript Accessors (Getters and Setters)
+
+This example uses a lang property to get the value of the language property.
+
+Example
+//create an object 
+
+var person = {
+ firstName: "John" ; 
+ lastName:  "Doe" ;
+ language:  "en" ;
+  get lang() {
+    return this.language;
+     }
+  };
+document.getElementById("demo").innerHTML = person.lang;
+</script>
+
+</body>
+</html>
+
+//difference between the getter and function
+I.
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+// Display data from the object using a method:
+document.getElementById("demo").innerHTML = person.fullName();
+
+II.
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  get fullName() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+// Display data from the object using a getter:
+document.getElementById("demo").innerHTML = person.fullName;
+
+---------------------------------------------------------
+
+6.Object.defineProperty()
+
+var obj = {counter : 0};
+
+// Define setters
+Object.defineProperty(obj, "reset", {
+  get : function () {this.counter = 0;}
+});
+Object.defineProperty(obj, "increment", {
+  get : function () {this.counter++;}
+});
+Object.defineProperty(obj, "decrement", {
+  get : function () {this.counter--;}
+});
+Object.defineProperty(obj, "add", {
+  set : function (value) {this.counter += value;}
+});
+Object.defineProperty(obj, "subtract", {
+  set : function (value) {this.counter -= value;}
+});
+
+// Play with the counter:
+obj.reset;
+obj.add = 5;
+obj.subtract = 1;
+obj.increment;
+obj.decrement;
+document.getElementById("demo").innerHTML = obj.counter;
+</script>
+
+</body>
+</html>
+  
+
+
